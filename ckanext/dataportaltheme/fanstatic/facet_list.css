@@ -1,22 +1,24 @@
 
 
-h2 {
-	 background-color : #ff6666;
-}
 
 item-label {
-  background-color : #ff6666;
+  background-color : transparent;
 
 }
 
-.nav_item_class ul {
-  background-color : #ff6666;
-
-}
 
 li.nav-item {
-	color: #ff6666;
+  color: #21409A;
 }
+
+
+p.module-footer{
+  
+  border-top: none;
+}
+
 h2.module-heading {
-	 background-color : #ff6666;
+  color: #000000;
+  background-color: transparent;
+  border: 1.5px solid #9E9E9E;
 }

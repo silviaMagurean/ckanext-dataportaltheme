@@ -28,13 +28,14 @@ class DataportalthemePlugin(plugins.SingletonPlugin):
         # plugin.py file.
         toolkit.add_template_directory(config, 'templates')
         toolkit.add_public_directory(config, 'public')
+
         # Register this plugin's fanstatic directory with CKAN.
         # Here, 'fanstatic' is the path to the fanstatic directory
         # (relative to this plugin.py file), and 'example_theme' is the name
         # that we'll use to refer to this fanstatic directory from CKAN
         # templates.
         toolkit.add_resource('fanstatic', 'dataportaltheme')
-
+        toolkit.add_resource('fanstatic', 'facet_list.css')
         # Add this plugin's public dir to CKAN's extra_public_paths, so
         # that CKAN will use this plugin's custom static files.
         toolkit.add_public_directory(config, 'public')
@@ -48,6 +49,9 @@ class DataportalthemePlugin(plugins.SingletonPlugin):
     def after_map(self, route_map):
         return route_map
 
+ 
+
+
     def get_helpers(self):
         '''Register the most_popular_groups() function above as a template
         helper function.
@@ -56,9 +60,10 @@ class DataportalthemePlugin(plugins.SingletonPlugin):
         # Template helper function names should begin with the name of the
         # extension they belong to, to avoid clashing with functions from
         # other extensions.
+        from ckanext.dataportaltheme import helpers
         return {
             'all_groups': all_groups,
-            'current_year': datetime.now().year
+            'current_year': datetime.now().year,
         }
 
 class PortalController(base.BaseController):
